@@ -6,7 +6,7 @@ const Terminal = () => {
         [textDisplayed, setTextDisplayed] = useState("");
 
         useEffect(() => {
-            style();
+        //    style();
         })
 
     const handleChange = (event) => {
