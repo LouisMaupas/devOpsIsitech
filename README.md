@@ -39,7 +39,12 @@ git switch feat#12
 ```
 git push origin -u feat#12
 ```
-(3') sinon on push directement sur dev avec squash des commits
+(3') sinon on push directement sur dev (avec squash des commits si nécessaire)
+```git checkout dev ``` On switch sur dev
+```git pull ``` ⚠️🔺 pour vérifier qu'on est à jour 🔺⚠️
+```git merge currentFeatureOrFix``` on fusionne la branche currentFeatureOrFix avec la branche dev
+```git push ``` on push
+
 (4) Demande de merge (pour conserver l'historique) de dev vers main + tag
 github : compare & pull request
     (4.1) dev.yaml
@@ -47,7 +52,7 @@ github : compare & pull request
     (5.1) suppression de la branche feat#12
 (6) Si c'est stable demande de merge de dev vers main
 (7) Dev 2 accepte
-    prod.yaml
+    deploy.yaml
     (7.1) script esLint
     (7.2) tests unitaires
     (7.3) build
