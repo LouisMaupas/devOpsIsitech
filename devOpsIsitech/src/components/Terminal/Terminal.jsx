@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./index.css"
+// import "./index.css"
 
 const Terminal = () => {
     const [text, setText] = useState(""),
@@ -17,10 +17,10 @@ const Terminal = () => {
     return(
         <>
             <form onSubmit={handleSubmit}>
-                <input type="text" value={text} onChange={handleChange} />
+                <input id="console-input" type="text" value={text} onChange={handleChange} />
                 <input type="submit" hidden={true}/>
             </form>
-            <span>{textDisplayed}</span>
+            <span id="console-return">{textDisplayed}</span>
         </>
     )
 }
