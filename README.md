@@ -39,7 +39,12 @@ git switch feat#12
 ```
 git push origin -u feat#12
 ```
-(3') sinon on push directement sur dev avec squash des commits
+(3') sinon on push directement sur dev (avec squash des commits si nécessaire)
+```git checkout dev ``` On switch sur dev
+```git pull ``` ⚠️🔺 pour vérifier qu'on est à jour 🔺⚠️
+```git merge currentFeatureOrFix``` on fusionne la branche currentFeatureOrFix avec la branche dev
+```git push ``` on push
+
 (4) Demande de merge (pour conserver l'historique) de dev vers main + tag
 github : compare & pull request
     (4.1) dev.yaml
