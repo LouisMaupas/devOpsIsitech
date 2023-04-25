@@ -20,7 +20,6 @@
     "babel-preset-react-app": "^10.0.1",
     "identity-obj-proxy": "^3.0.0",
     "jest-circus": "^29.5.0",
-    "jest-scss-transform": "^1.0.3",
     "jest-watch-typeahead": "^2.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
