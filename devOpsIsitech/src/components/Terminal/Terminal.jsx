@@ -1,9 +1,13 @@
-import { useState } from "react";
-import "./index.css"
+import { useEffect, useState } from "react";
+import {style} from './style.js';
 
 const Terminal = () => {
     const [text, setText] = useState(""),
         [textDisplayed, setTextDisplayed] = useState("");
+
+        useEffect(() => {
+            style();
+        })
 
     const handleChange = (event) => {
         setText(event.target.value);
@@ -12,15 +16,17 @@ const Terminal = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setTextDisplayed(text)
-    }
+    }  
 
     return(
         <>
-            <form onSubmit={handleSubmit}>
-                <input type="text" value={text} onChange={handleChange} />
+            <form
+            id="form"
+             onSubmit={handleSubmit}>
+                <input id="console-input" type="text" value={text} onChange={handleChange} autoFocus={true} />
                 <input type="submit" hidden={true}/>
             </form>
-            <span>{textDisplayed}</span>
+            <span id="console-return">{textDisplayed}</span>
         </>
     )
 }
