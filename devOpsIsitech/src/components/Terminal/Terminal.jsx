@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import {style} from './style.js';
+// import {style} from './style.js';
 
 const Terminal = () => {
     const [text, setText] = useState(""),
         [textDisplayed, setTextDisplayed] = useState("");
 
         useEffect(() => {
-            style();
+        //    style();
         })
 
     const handleChange = (event) => {

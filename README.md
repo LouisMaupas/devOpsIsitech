@@ -64,8 +64,8 @@ github : compare & pull request
     (5.1) suppression de la branche feat#12  
 (6) Si c'est stable demande de merge de dev vers main  
 (7) Dev 2 accepte
-    prod.yaml  
-    (7.1) script esLint  
-    (7.2) tests unitaires  
-    (7.3) build  
+    deploy.yaml
+    (7.1) script esLint
+    (7.2) tests unitaires
+    (7.3) build
     (7.4) Déploiement Vercel
