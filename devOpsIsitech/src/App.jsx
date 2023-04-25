@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import {Terminal} from './components/Terminal/Terminal'
 

@@ -20,9 +20,7 @@ const Terminal = () => {
 
     return(
         <>
-            <form
-            id="form"
-             onSubmit={handleSubmit}>
+            <form id="form" onSubmit={handleSubmit}>
                 <input id="console-input" type="text" value={text} onChange={handleChange} autoFocus={true} />
                 <input type="submit" hidden={true}/>
             </form>
