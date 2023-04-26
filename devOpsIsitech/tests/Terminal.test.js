@@ -11,13 +11,13 @@ describe('Terminal Input', () => {
         const consoleReturn = component.root.findByProps({ id: 'console-return' });
 
         act(() => {
-            consoleInput.props.onChange({ target: { value: 'Hello World' } });
+            consoleInput.props.onChange({ target: { value: 'saymyname Tom' } });
         });
 
         act(() => {
             submit.props.onSubmit({ preventDefault: () => {} });
         });
 
-        expect(consoleReturn.props.children).toBe('Hello World');
+        expect(consoleReturn.props.children).toBe('Hello Tom !');
     });
 });
