@@ -6,7 +6,7 @@ Notre projet est un terminal de commande conçu pour afficher des informations s
 - [Utiliser le projet](#comment-utiliser-le-projet)
 - [Technos & Conventions](#technos--conventions)
 - [Workflow Git](#workflow-git)
-    - [Exemple d'Ajout de Feature](#exemple-dajout-de-la-feature-n°12)
+    - [Exemple d'Ajout de Feature](#exemple-dajout-de-la-feature-n12)
     - [Exemple d'Ajout de Fix](#exemple-dajout-de-fix)
     - [CI/CD](#cicd)
 
