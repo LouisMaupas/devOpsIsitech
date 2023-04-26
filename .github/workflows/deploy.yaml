@@ -12,8 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Clear Cache
+        run: npm cache clean --force
+
       - name: Install Dependencies
-        run: npm install 
+        run: npm install
 
       # - name: Pull Vercel Environment Information
       #   run: vercel pull --yes --environment=production --token=${{ secrets.DEVOPS_ISI_TOKEN }}
