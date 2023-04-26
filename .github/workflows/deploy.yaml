@@ -31,4 +31,4 @@ jobs:
       #   run: vercel deploy --prebuilt --prod --token=${{ secrets.DEVOPS_ISI_TOKEN }}
 
       - name: Lint
-        run: pnpm run lint
+        run: npm run lint
