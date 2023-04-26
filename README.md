@@ -6,7 +6,12 @@ Notre projet est un terminal de commande conçu pour afficher des informations s
 - [Utiliser le projet](#comment-utiliser-le-projet)
 - [Technos & Conventions](#technos--conventions)
 - [Workflow Git](#workflow-git)
+    - [Exemple d'Ajout de Feature](#exemple-dajout-de-la-feature-n°12)
+    - [Exemple d'Ajout de Fix](#exemple-dajout-de-fix)
+    - [CI/CD](#cicd)
 
+### Membre du Projet
+- Louis Maupas & Lucas Michon
 
 ## Comment installer le Projet 
 
@@ -19,7 +24,7 @@ Notre projet est un terminal de commande conçu pour afficher des informations s
 4. `pnpm run dev`
 
 ## Comment utiliser le projet
-> Tapez `/help` pour avoir la liste des commandes
+> Tapez `help` pour avoir la liste des commandes
 
 # Technos & Conventions
 - Gestionnaire de paquets : pnpm  
@@ -31,41 +36,48 @@ Notre projet est un terminal de commande conçu pour afficher des informations s
 - Plateforme de CI/CD : Github Actions  
 - Hebergement : Vercel 
 - Messages de commits : [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-
-# Workflow Git
-- **main** : branche principal contient le code de production et n'est mis à jour 
-- **Dev** : branche tampon entre main et les branches des feat/fix
-- **feat# / fix#** : branche temporaire crée à partir de main, dédiée à la résolution d'un bug ou création d'une nouvelle feature. Elle est fusionné à main puis supprimée une fois le ticket clos.
 - Utilisation de tag pour le versionning selon le standard de Gestion sémantique de version 2.0.0
-- Messages de commits : [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+
+# Workflow CI/CD
+- **main** : branche principal, contient le code qui va en production.
+- **Dev** : branche tampon entre main et les branches de feat/fix
+- **feat# / fix# / ...** : branche temporaire crée à partir de dev, dédiée à la résolution d'un bug ou création d'une nouvelle feature. Elle est fusionné à main puis supprimée une fois le ticket clos ou la feature ajoutée.  
+
+*Voir ci-dessous pour le schéma récapitulatif du Workflow*
+
+![](Workflow.png)
+
+## Exemple d'ajout de fix
+1. Un premier développeur va ouvrir un ticket (issue) sur Github.
+2. Le développeur à qui est assigné le ticket suit le [Workflow](#exemple-dajout-de-la-feature-n°12)
 
 ## Exemple d'ajout de la feature n°12
 
-(1) Création d'un nouvelle branche local nommée feat#12 à partir de dev
-```
-git switch feat#12
-```
-(2) Developpement par le dev 1 en local  
-(2.1) commit (+ squash si nécessaire)  
-(3) Si besoin de tester : création d'une branche temporaire distante + push
-```
-git push origin -u feat#12
-```
-(3') sinon on push directement sur dev (avec squash des commits si nécessaire)
-```git checkout dev ``` On switch sur dev
-```git pull ``` ⚠️🔺 pour vérifier qu'on est à jour 🔺⚠️
-```git merge currentFeatureOrFix``` on fusionne la branche currentFeatureOrFix avec la branche dev
-```git push ``` on push
+1. Création d'une nouvelle branche locale nommée feat#12 à partir de la branche Dev
 
-(4) Demande de merge (pour conserver l'historique) de dev vers main + tag
-github : compare & pull request  
-    (4.1) dev.yaml  
-(5) Dev 2 approuve la demande  
-    (5.1) suppression de la branche feat#12  
-(6) Si c'est stable demande de merge de dev vers main  
-(7) Dev 2 accepte
-    deploy.yaml
-    (7.1) script esLint
-    (7.2) tests unitaires
-    (7.3) build
-    (7.4) Déploiement Vercel
+    ```powershell
+    git switch -c feat#12
+    ```
+2. En local, le développeur code la feature et commit avec squash si nécessaire.
+
+3. Une fois la feature terminée, le développeur push directement sur Dev (avec squash des commits si nécessaire)  
+    - `git checkout Dev ` ou `git switch Dev` pour switch sur la branche Dev.
+    - `git pull ` ⚠️🔺 pour vérifier qu'on est à jour 🔺⚠️  
+    - `git merge currentFeatureOrFix` on fusionne la branche currentFeatureOrFix avec la branche dev.
+    - `git push ` on push sur la branche distante (origin/Dev).
+    - `git tag -a vX.X -m "Description"` si nécessaire ajouté un tag...
+    - `git push --tags` ...et l'envoyer.
+
+4. Sur Github, le développeur fait une demande de merge  de la branche origin/Dev vers origin/main : **Create Pull Request**  
+5. Un second développeur doit commenter, approuver ou demander des changement sur la demande de merge.
+6. La CI/CD s'active
+
+## CI/CD
+
+1. `actions/checkout@v2` :  est l'étape pour récupérer les sources de l'application depuis le référentiel Git.
+2. `Install Vercel CLI` :  installe la dernière version du CLI Vercel.
+3. `Clear Cache` : vide le cache  
+4. `Install Dependencies` : installe les dépendances pour l'application.
+5. `Lint` : execute l'outil de linting pour vérifier la qualité du code.
+6. `Tests` : execute les tests unitaires.
