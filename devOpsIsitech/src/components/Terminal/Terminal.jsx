@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 // import {style} from './style.js';
+import './style.css'
 
 const Terminal = () => {
     const [text, setText] = useState(""),
