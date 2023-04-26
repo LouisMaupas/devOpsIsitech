@@ -11,4 +11,12 @@ const sayMyName = (name) => {
     return `Hello ${name} !`;
 }
 
-export {help, sayMyName};
+const lightmode = () => {
+    return `Light on !`;
+}
+
+const darkmode = () => {
+    return `Light off !`;
+}
+
+export {help, sayMyName, lightmode, darkmode};
