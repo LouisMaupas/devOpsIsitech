@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import {help, sayMyName} from "../../features/commands.js"
+import {help, sayMyName, lightmode, darkmode} from "../../features/commands.js"
 import {focusInput} from "../../utils/misc.js"
 import './style.css'
 
 const Terminal = () => {
     const [text, setText] = useState(""),
-        [textDisplayed, setTextDisplayed] = useState("");
+        [textDisplayed, setTextDisplayed] = useState(""),
+        [screenMode, setScreenMode] = useState("dark-mode");
 
     useEffect(() => {
         focusInput(document.querySelector('#console-input'))
@@ -27,24 +28,39 @@ const Terminal = () => {
             case "saymyname":
                 setTextDisplayed(sayMyName(arg))
                 break;
+            case "lightmode":
+                setTextDisplayed(lightmode())
+                setScreenMode("light-mode");
+                break;   
+            case "darkmode":
+                setTextDisplayed(darkmode())
+                setScreenMode("dark-mode");
+                break;          
             default :
             setTextDisplayed(help())
         }
+        setText("")
     }  
 
     return(
-        <>
+        <div id="terminal" className={screenMode}>
             <div id="console">
                 <form id="form" onSubmit={handleSubmit}>
                     <div id="console-user">
                         $
-                        <input id="console-input" type="text" value={text} onChange={handleChange} autoFocus={true} />
+                        <input id="console-input" 
+                        type="text" 
+                        value={text} 
+                        onChange={handleChange} 
+                        autoFocus={true}
+                        className={screenMode} 
+                        />
                     </div>
                     <input type="submit" hidden={true}/>
                 </form>
                 <div id="console-return">{textDisplayed}</div> 
             </div>
-        </>
+        </div>
     )
 }
 

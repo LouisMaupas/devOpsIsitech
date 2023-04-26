@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import { Terminal } from '../src/components/Terminal/Terminal';
 
 describe('Terminal Input', () => {
-    test('it should display the input value', () => {
+    test("write 'saymyname Tom' should display 'Hello Tom !'", () => {
         const component = renderer.create(<Terminal />);
         const consoleInput = component.root.findByProps({ id: 'console-input' });
         const submit = component.root.findByType('form');
@@ -19,5 +19,9 @@ describe('Terminal Input', () => {
         });
 
         expect(consoleReturn.props.children).toBe('Hello Tom !');
+    });
+
+    test("write 'saymyname' should display 'Hello !'", () => {
+        
     });
 });
