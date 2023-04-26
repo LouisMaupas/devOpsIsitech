@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { act } from 'react-dom/test-utils';
 import { Terminal } from '../src/components/Terminal/Terminal';
+import { focusInput } from '../src/utils/misc.js';
 
 describe('Terminal Input', () => {
     test("write 'saymyname Tom' should display 'Hello Tom !'", () => {
@@ -21,7 +22,25 @@ describe('Terminal Input', () => {
         expect(consoleReturn.props.children).toBe('Hello Tom !');
     });
 
-    test("write 'saymyname' should display 'Hello !'", () => {
-        
-    });
+    test("focusInput sets focus on consoleInput when webpage is clicked", () => {
+        const focusMock = jest.fn();
+        const querySelectorMock = jest.fn(() => ({ focus: focusMock }));
+        const addEventListenerMock = jest.spyOn(document, 'addEventListener');
+      
+        addEventListenerMock.mockImplementation((event, handler) => {
+          handler();
+        });
+      
+        const consoleInput = { focus: jest.fn() };
+        focusInput(consoleInput);
+      
+        expect(addEventListenerMock).toHaveBeenCalledWith(
+          "click",
+          expect.any(Function)
+        );
+      
+        expect(consoleInput.focus).toHaveBeenCalled();
+      });
+      
+      
 });
