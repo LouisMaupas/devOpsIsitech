@@ -63,6 +63,10 @@ const Terminal = () => {
                 if (!arg) {
                     setTextDisplayed("music play || music stop")
                 } else if (arg === "play") {
+                    if (document.querySelector("iframe")){
+                        setTextDisplayed("Une musique est déjà en cours...");
+                        return
+                    }
                     const iframe = document.createElement("iframe");
                     iframe.src = "https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1";
                     iframe.frameBorder = "0";
