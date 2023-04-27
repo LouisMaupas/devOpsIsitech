@@ -47,7 +47,7 @@ const Terminal = () => {
                 .then(() => {
                     const endTime = Date.now(),
                         pingTime = endTime - startTime;
-                    setTextDisplayed(`Ping google in ${pingTime}ms`);
+                    setTextDisplayed(`Ping google en ${pingTime}ms`);
                 })
                 .catch(() => {
                     setTextDisplayed(`Cannot ping ${google}`);
