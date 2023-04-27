@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { act } from 'react-dom/test-utils';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { Terminal } from '../src/components/Terminal/Terminal';
 import { focusInput } from '../src/utils/misc.js';
 import '@testing-library/jest-dom/extend-expect';
@@ -75,4 +75,16 @@ describe('Terminal component', () => {
     jest.restoreAllMocks();
     });
 
+    // Test d'intégration de ping google
+    /* TODO test ping feature
+    test('Should display ping result', async () => {
+      const { getByTestId, getByText } = render(<Terminal />);
+      const input = getByTestId('console-input');
+      fireEvent.change(input, { target: { value: 'ping' } });
+      fireEvent.submit(input);
+      await waitFor(() =>
+        expect(getByText(/Ping google in/)).toBeInTheDocument()
+      );
+    });
+    */
 });
