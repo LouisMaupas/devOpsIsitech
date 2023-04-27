@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {help, sayMyName, lightmode, darkmode} from "../../features/commands.jsx"
+import {help, fbi, sayMyName, lightmode, darkmode} from "../../features/commands.jsx"
 import {focusInput} from "../../utils/misc.js"
 import './style.css'
 
@@ -29,6 +29,9 @@ const Terminal = () => {
             case "help":
                 setTextDisplayed(help())
                 break;
+            case "fbi":
+                setTextDisplayed(fbi())
+                break;
             case "saymyname":
                 setTextDisplayed(sayMyName(arg))
                 break;
@@ -40,19 +43,44 @@ const Terminal = () => {
                 setTextDisplayed(darkmode())
                 setScreenMode("dark-mode");
                 break;  
+            case "matrix":
+                setScreenMode("matrix");
+            break;  
             case "ping": {
                 const startTime = Date.now(),
-                    google = `8.8.8.8`;
+                google = `8.8.8.8`;
                 fetch(google)
-                    .then(() => {
-                        const endTime = Date.now(),
-                            pingTime = endTime - startTime;
-                        setTextDisplayed(`Ping google in ${pingTime}ms`);
-                    })
-                    .catch(() => {
-                        setTextDisplayed(`Cannot ping ${google}`);
-                    });
-                } break;
+                .then(() => {
+                    const endTime = Date.now(),
+                        pingTime = endTime - startTime;
+                    setTextDisplayed(`Ping google en ${pingTime}ms`);
+                })
+                .catch(() => {
+                    setTextDisplayed(`Cannot ping ${google}`);
+                });
+            } break;
+            case "music": {
+                if (!arg) {
+                    setTextDisplayed("music play || music stop")
+                } else if (arg === "play") {
+                    const iframe = document.createElement("iframe");
+                    iframe.src = "https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1";
+                    iframe.frameBorder = "0";
+                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+                    iframe.width = "0";
+                    iframe.height = "0";
+                    document.body.appendChild(iframe);
+                    setTextDisplayed("Musique en cours...");
+                } else if (arg === "stop") {
+                    setTextDisplayed("La musique va être coupé...");
+                    const iframeToRemove = document.querySelector("iframe");
+                    if (iframeToRemove) {
+                        iframeToRemove.remove();
+                    } else {
+                        setTextDisplayed("Aucune musique n'est joué.");
+                    }
+                }
+            } break;
             default :
             setTextDisplayed(help())
         }
