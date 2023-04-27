@@ -5,7 +5,6 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import { Terminal } from '../src/components/Terminal/Terminal';
 import { focusInput } from '../src/utils/misc.js';
 import '@testing-library/jest-dom/extend-expect';
-import 'jest-styled-components';
 
 describe('Terminal component', () => {
     test("write 'saymyname Tom' should display 'Hello Tom !'", () => {
