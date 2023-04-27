@@ -50,7 +50,7 @@ Notre projet est un terminal de commande conçu pour afficher des informations s
 
 ## Exemple d'ajout de fix
 1. Un premier développeur va ouvrir un ticket (issue) sur Github.
-2. Le développeur à qui est assigné le ticket suit le [Workflow](#exemple-dajout-de-la-feature-n°12)
+2. Le développeur à qui est assigné le ticket suit le [Workflow](#exemple-dajout-de-la-feature-n12)
 
 ## Exemple d'ajout de la feature n°12
 
