@@ -32,9 +32,13 @@ const Terminal = () => {
             case "fbi":
                 setTextDisplayed(fbi())
                 break;
-            case "saymyname":
-                setTextDisplayed(sayMyName(arg))
-                break;
+            case "saymyname": {
+                if (!arg) {
+                    setTextDisplayed(`D'accord mais quel est ton nom ?`)
+                } else {
+                    setTextDisplayed(sayMyName(arg))
+                }
+            }break;
             case "lightmode":
                 setTextDisplayed(lightmode())
                 setScreenMode("light-mode");
