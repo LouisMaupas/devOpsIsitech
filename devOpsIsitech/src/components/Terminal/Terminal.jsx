@@ -40,10 +40,10 @@ const Terminal = () => {
                 setTextDisplayed(darkmode())
                 setScreenMode("dark-mode");
                 break;  
-            case "ping":
-                    const startTime = Date.now(),
-                        google = `8.8.8.8`;
-                    fetch(google)
+            case "ping": {
+                const startTime = Date.now(),
+                    google = `8.8.8.8`;
+                fetch(google)
                     .then(() => {
                         const endTime = Date.now(),
                             pingTime = endTime - startTime;
@@ -52,7 +52,7 @@ const Terminal = () => {
                     .catch(() => {
                         setTextDisplayed(`Cannot ping ${google}`);
                     });
-                break;
+                } break;
             default :
             setTextDisplayed(help())
         }
