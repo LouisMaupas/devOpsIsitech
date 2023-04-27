@@ -81,3 +81,17 @@ Notre projet est un terminal de commande conçu pour afficher des informations s
 4. `Install Dependencies` : installe les dépendances pour l'application.
 5. `Lint` : execute l'outil de linting pour vérifier la qualité du code.
 6. `Tests` : execute les tests unitaires.
+
+## Tests
+Notre processus de CI/CD intègre une pipeline de test via un job, mais nous pouvons exécuter les tests avec la commande `pnpm test`.
+
+Nous pouvons voir la couverture de test grâce à la commande  
+`pnpm test -- --coverage`
+![](Coverage.png)
+
+Notre taux de couverture est de 78.94%
+![](CoverageAll.png)
+
+
+La rédaction des tests est en cours ...
+![](CoverageTerminal.png)
