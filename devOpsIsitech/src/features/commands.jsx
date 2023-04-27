@@ -6,7 +6,7 @@ const help = () => {
         <div><span className="fw-b">lightmode :</span> change apparence en thème clair;</div> 
         <div><span className="fw-b">darkmode :</span> change apparence en thème sombre;</div>
         <div><span className="fw-b">ping :</span> ping google et retourne le délais;</div> 
-        <div><span className="fw-b">music :</span> lance une musique en arrière plan;</div> 
+        <div><span className="fw-b">music play:</span> lance une musique en arrière plan;</div> 
         <div><span className="fw-b">music stop :</span> stop la musique qui est en cours;</div>
         <div><span className="fw-b">fbi :</span> le fbi observe;</div>
         <br/>
