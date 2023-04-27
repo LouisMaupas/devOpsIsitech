@@ -21,4 +21,8 @@ const darkmode = () => {
     return `Light off !`;
 }
 
-export {help, sayMyName, lightmode, darkmode};
+const fbi = () => {
+      return (`Vous parlez ${window.navigator.language} sur votre écran de ${window.screen.width}x${window.screen.height}`);
+}
+
+export {help, sayMyName, lightmode, darkmode, fbi};
