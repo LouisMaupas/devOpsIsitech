@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {help, sayMyName, lightmode, darkmode} from "../../features/commands.js"
+import {help, sayMyName, lightmode, darkmode} from "../../features/commands.jsx"
 import {focusInput} from "../../utils/misc.js"
 import './style.css'
 
@@ -63,7 +63,7 @@ const Terminal = () => {
                     </div>
                     <input type="submit" hidden={true}/>
                 </form>
-                <div id="console-return">{textDisplayed}</div> 
+                <div id="console-return">{textDisplayed}</div>
             </div>
         </div>
     )

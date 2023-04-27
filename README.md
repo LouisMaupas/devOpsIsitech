@@ -62,10 +62,10 @@ Notre projet est un terminal de commande conçu pour afficher des informations s
 2. En local, le développeur code la feature et commit avec squash si nécessaire.
 
 3. Une fois la feature terminée, le développeur push directement sur Dev (avec squash des commits si nécessaire)  
-    - `git checkout Dev ` ou `git switch Dev` pour switch sur la branche Dev.
-    - `git pull ` ⚠️🔺 pour vérifier qu'on est à jour 🔺⚠️  
+    - `git checkout Dev` ou `git switch Dev` pour switch sur la branche Dev.
+    - `git pull` ⚠️🔺 pour vérifier qu'on est à jour 🔺⚠️  
     - `git merge currentFeatureOrFix` on fusionne la branche currentFeatureOrFix avec la branche dev.
-    - `git push ` on push sur la branche distante (origin/Dev).
+    - `git push` on push sur la branche distante (origin/Dev).
     - `git tag -a vX.X -m "Description"` si nécessaire ajouté un tag...
     - `git push --tags` ...et l'envoyer.
 
