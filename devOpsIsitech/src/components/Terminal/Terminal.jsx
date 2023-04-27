@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {help, sayMyName, lightmode, darkmode} from "../../features/commands.jsx"
+import {help, sayMyName, lightmode, darkmode, matrix} from "../../features/commands.jsx"
 import {focusInput} from "../../utils/misc.js"
 import './style.css'
 
@@ -40,6 +40,10 @@ const Terminal = () => {
                 setTextDisplayed(darkmode())
                 setScreenMode("dark-mode");
                 break;  
+            case "matrix":
+                setTextDisplayed(matrix())
+                setScreenMode("matrix");
+            break;  
             case "ping": {
                 const startTime = Date.now(),
                 google = `8.8.8.8`;
