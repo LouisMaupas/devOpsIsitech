@@ -15,6 +15,11 @@
 
 #console {
     margin-left: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#console-input {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #console-user {
