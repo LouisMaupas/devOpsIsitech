@@ -16,6 +16,7 @@
 #console {
     margin-left: 1rem;
     font-family: 'Courier New', Courier, monospace;
+    padding: 5rem;
 }
 
 #console-input {

@@ -84,7 +84,7 @@ Notre projet est un terminal de commande construit avec la bibliothèque React. 
 Notre pipeline intègre un job de tests, mais nous pouvons exécuter les tests manuellement avec la commande `pnpm test`.
 
 Nous pouvons voir la couverture de test grâce à la commande  
-`pnpm test -- --coverage`
+`pnpm test -- --coverage`  
 ![](Coverage.png)
 
 Notre taux de couverture est de 78.94%
