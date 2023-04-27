@@ -1,11 +1,14 @@
 const help = () => {
     return (
-    <>
-        <span>help: affiche aide;</span> <br />
-        <span>saymyname [name]: affiche Hello [name] !;</span> <br />
-        <span>lightmode : change apparence en thème clair;</span> <br />
-        <span>darkmode : change apparence en thème sombre;</span> <br />
-    </>
+    <div className="help">
+        <div><span className="fw-b">help :</span> affiche aide;</div>
+        <div><span className="fw-b">saymyname [name] :</span> affiche Hello [name] !;</div>
+        <div><span className="fw-b">lightmode :</span> change apparence en thème clair;</div> 
+        <div><span className="fw-b">darkmode :</span> change apparence en thème sombre;</div>
+        <div><span className="fw-b">ping :</span> ping google et retourne le délais;</div> 
+        <div><span className="fw-b">music :</span> lance une musique en arrière plan;</div> 
+        <div><span className="fw-b">music stop :</span> stop la musique qui est en cours.</div>
+    </div>
     );
 };
 
@@ -25,4 +28,8 @@ const fbi = () => {
       return (`Vous parlez ${window.navigator.language} sur votre écran de ${window.screen.width}x${window.screen.height}`);
 }
 
-export {help, sayMyName, lightmode, darkmode, fbi};
+const matrix = () => {
+    return `Entrez dans la matrice!`;
+}
+
+export {help, sayMyName, lightmode, darkmode, fbi, matrix};

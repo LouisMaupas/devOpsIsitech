@@ -13,6 +13,11 @@
     color: black;
 }
 
+.matrix {
+    background-color: black;
+    color: rgb(135, 247, 135);
+}
+
 #console {
     margin-left: 1rem;
     font-family: 'Courier New', Courier, monospace;
@@ -32,4 +37,13 @@
     width: 100%;
     outline: none;
     font-size: 16px;
+}
+
+.help {
+    display: flex;
+    flex-direction: column;
+}
+
+.fw-b {
+    font-weight: bold;
 }
