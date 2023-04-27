@@ -40,19 +40,38 @@ const Terminal = () => {
                 setTextDisplayed(darkmode())
                 setScreenMode("dark-mode");
                 break;  
-            case "ping":
-                    const startTime = Date.now(),
-                        google = `8.8.8.8`;
-                    fetch(google)
-                    .then(() => {
-                        const endTime = Date.now(),
-                            pingTime = endTime - startTime;
-                        setTextDisplayed(`Ping google in ${pingTime}ms`);
-                    })
-                    .catch(() => {
-                        setTextDisplayed(`Cannot ping ${google}`);
-                    });
-                break;
+            case "ping": {
+                const startTime = Date.now(),
+                google = `8.8.8.8`;
+                fetch(google)
+                .then(() => {
+                    const endTime = Date.now(),
+                        pingTime = endTime - startTime;
+                    setTextDisplayed(`Ping google in ${pingTime}ms`);
+                })
+                .catch(() => {
+                    setTextDisplayed(`Cannot ping ${google}`);
+                });
+            } break;
+            case "music": {
+                const iframe = document.createElement("iframe");
+                iframe.src = "https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1";
+                iframe.frameBorder = "0";
+                iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+                iframe.width = "0";
+                iframe.height = "0";
+                document.body.appendChild(iframe);
+                setTextDisplayed("Musique en cours...");
+            } break;
+            case "stop": {
+                setTextDisplayed("La musique va être coupé...");
+                const iframeToRemove = document.querySelector("iframe");
+                if (iframeToRemove) {
+                    iframeToRemove.remove();
+                } else {
+                    setTextDisplayed("Aucune musique n'est joué.");
+                }
+            } break;
             default :
             setTextDisplayed(help())
         }
