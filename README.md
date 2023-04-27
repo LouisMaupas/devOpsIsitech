@@ -1,5 +1,5 @@
 # Projet devOpsIsitech
-Notre projet est un terminal de commande conçu pour afficher des informations sur le cours de DevOps. Le terminal est construit en utilisant la bibliothèque React et permet aux utilisateurs d'interagir à travers des [commandes](#comment-utiliser-le-projet).
+Notre projet est un terminal de commande construit avec la bibliothèque React. il permet aux utilisateurs d'interagir à travers des [commandes](#comment-utiliser-le-projet).
 
 # Table des Matières
 - [Installer le projet](#comment-installer-le-projet)
@@ -29,7 +29,7 @@ Notre projet est un terminal de commande conçu pour afficher des informations s
 # Technos & Conventions
 - Gestionnaire de paquets : pnpm  
 - Front : React  
-- Frontend dev env / builder : Vite  
+- Environnement de développement et de construction : Vite  
 - Test : Jest  
 - Linter : EsLint  
 - Versionning et travail collaboratif : Git / Github  
@@ -39,7 +39,7 @@ Notre projet est un terminal de commande conçu pour afficher des informations s
 - Utilisation de tag pour le versionning selon le standard de Gestion sémantique de version 2.0.0
 
 
-# Workflow CI/CD
+# Workflow de CI/CD
 - **main** : branche principal, contient le code qui va en production.
 - **Dev** : branche tampon entre main et les branches de feat/fix
 - **feat# / fix# / ...** : branche temporaire crée à partir de dev, dédiée à la résolution d'un bug ou création d'une nouvelle feature. Elle est fusionné à main puis supprimée une fois le ticket clos ou la feature ajoutée.  
@@ -53,25 +53,23 @@ Notre projet est un terminal de commande conçu pour afficher des informations s
 2. Le développeur à qui est assigné le ticket suit le [Workflow](#exemple-dajout-de-la-feature-n12)
 
 ## Exemple d'ajout de la feature n°12
-
-1. Création d'une nouvelle branche locale nommée feat#12 à partir de la branche Dev
-
+1. Création d'une nouvelle branche locale nommée feat#12 à partir de la branche origin/Dev
     ```powershell
     git switch -c feat#12
     ```
-2. En local, le développeur code la feature et commit avec squash si nécessaire.
+2. En local, le développeur code la fonctionnalité et commit (avec squash si nécessaire).
 
-3. Une fois la feature terminée, le développeur push directement sur Dev (avec squash des commits si nécessaire)  
+3. Une fois la feature terminée, le développeur push directement sur Dev et la pipeline s'active. 
     - `git checkout Dev` ou `git switch Dev` pour switch sur la branche Dev.
     - `git pull` ⚠️🔺 pour vérifier qu'on est à jour 🔺⚠️  
-    - `git merge currentFeatureOrFix` on fusionne la branche currentFeatureOrFix avec la branche dev.
+    - `git merge currentFeatureOrFix` pour fusionner la branche currentFeatureOrFix avec la branche dev.
     - `git push` on push sur la branche distante (origin/Dev).
     - `git tag -a vX.X -m "Description"` si nécessaire ajouté un tag...
     - `git push --tags` ...et l'envoyer.
 
-4. Sur Github, le développeur fait une demande de merge  de la branche origin/Dev vers origin/main : **Create Pull Request**  
+4. Sur Github, le développeur fait une demande de merge de la branche origin/Dev vers origin/main : **Create Pull Request**  
 5. Un second développeur doit commenter, approuver ou demander des changement sur la demande de merge.
-6. La CI/CD s'active
+6. La pipeline s'execute
 
 ## CI/CD
 
@@ -83,7 +81,7 @@ Notre projet est un terminal de commande conçu pour afficher des informations s
 6. `Tests` : execute les tests unitaires.
 
 ## Tests
-Notre processus de CI/CD intègre une pipeline de test via un job, mais nous pouvons exécuter les tests avec la commande `pnpm test`.
+Notre pipeline intègre un job de tests, mais nous pouvons exécuter les tests manuellement avec la commande `pnpm test`.
 
 Nous pouvons voir la couverture de test grâce à la commande  
 `pnpm test -- --coverage`
