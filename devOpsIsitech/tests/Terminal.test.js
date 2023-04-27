@@ -22,6 +22,23 @@ describe('Terminal Input', () => {
         expect(consoleReturn.props.children).toBe('Hello Tom !');
     });
 
+    test("typing 'lightmode' should change background color to white", () => {
+      const component = renderer.create(<Terminal />);
+      const consoleInput = component.root.findByProps({ id: 'console-input' });
+      const submit = component.root.findByType('form');
+      const terminal = component.root.findByProps({ id: 'terminal' });
+    
+      act(() => {
+        consoleInput.props.onChange({ target: { value: 'lightmode' } });
+      });
+    
+      act(() => {
+        submit.props.onSubmit({ preventDefault: () => {} });
+      });
+    
+      expect(terminal.props.className).toBe('light-mode');
+    });
+
     test("focusInput sets focus on consoleInput when webpage is clicked", () => {
         const focusMock = jest.fn();
         const querySelectorMock = jest.fn(() => ({ focus: focusMock }));
