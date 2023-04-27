@@ -29,7 +29,7 @@ const Terminal = () => {
             case "help":
                 setTextDisplayed(help())
                 break;
-            case "help":
+            case "fbi":
                 setTextDisplayed(fbi())
                 break;
             case "saymyname":
