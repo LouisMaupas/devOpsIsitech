@@ -58,7 +58,7 @@ const Terminal = () => {
                     </div>
                     <input type="submit" hidden={true}/>
                 </form>
-                <div id="console-return">{textDisplayed}</div> 
+                <div id="console-return" dangerouslySetInnerHTML={{__html: textDisplayed}}></div>
             </div>
         </div>
     )
