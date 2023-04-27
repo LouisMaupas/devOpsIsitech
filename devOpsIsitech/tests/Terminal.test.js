@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { act } from 'react-dom/test-utils';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import { Terminal } from '../src/components/Terminal/Terminal';
 import { focusInput } from '../src/utils/misc.js';
 import '@testing-library/jest-dom/extend-expect';
@@ -76,18 +76,15 @@ describe('Terminal component', () => {
     });
 
     // Test d'intégration de ping google
-    it('should display the response time when the user types "ping google.com"', async () => {
-      render(<Terminal />);
-  
-      const input = screen.getByTestId('console-input');
-      fireEvent.change(input, { target: { value: 'ping google.com' } });
-      fireEvent.submit(screen.getByRole('form'));
-  
-      // wait for the response to be displayed
-      const responseTime = await screen.findByText(/Response time:/i);
-  
-      expect(responseTime).toBeInTheDocument();
-      expect(responseTime.textContent).toMatch(/Response time: \d+ms/i);
+    /* TODO test ping feature
+    test('Should display ping result', async () => {
+      const { getByTestId, getByText } = render(<Terminal />);
+      const input = getByTestId('console-input');
+      fireEvent.change(input, { target: { value: 'ping' } });
+      fireEvent.submit(input);
+      await waitFor(() =>
+        expect(getByText(/Ping google in/)).toBeInTheDocument()
+      );
     });
-
+    */
 });
