@@ -75,4 +75,19 @@ describe('Terminal component', () => {
     jest.restoreAllMocks();
     });
 
+    // Test d'intégration de ping google
+    it('should display the response time when the user types "ping google.com"', async () => {
+      render(<Terminal />);
+  
+      const input = screen.getByTestId('console-input');
+      fireEvent.change(input, { target: { value: 'ping google.com' } });
+      fireEvent.submit(screen.getByRole('form'));
+  
+      // wait for the response to be displayed
+      const responseTime = await screen.findByText(/Response time:/i);
+  
+      expect(responseTime).toBeInTheDocument();
+      expect(responseTime.textContent).toMatch(/Response time: \d+ms/i);
+    });
+
 });
