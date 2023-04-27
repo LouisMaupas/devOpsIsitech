@@ -1,11 +1,14 @@
 const help = () => {
     return (
-    <>
-        <span>help: affiche aide;</span> <br />
-        <span>saymyname [name]: affiche Hello [name] !;</span> <br />
-        <span>lightmode : change apparence en thème clair;</span> <br />
-        <span>darkmode : change apparence en thème sombre;</span> <br />
-    </>
+    <div class="help">
+        <div><span class="fw-b">help :</span> affiche aide;</div>
+        <div><span class="fw-b">saymyname [name] :</span> affiche Hello [name] !;</div>
+        <div><span class="fw-b">lightmode :</span> change apparence en thème clair;</div> 
+        <div><span class="fw-b">darkmode :</span> change apparence en thème sombre;</div>
+        <div><span class="fw-b">ping :</span> ping google et retourne le délais;</div> 
+        <div><span class="fw-b">music :</span> lance une musique en arrière plan;</div> 
+        <div><span class="fw-b">music stop :</span> stop la musique qui est en cours.</div>
+    </div>
     );
 };
 
@@ -21,4 +24,8 @@ const darkmode = () => {
     return `Light off !`;
 }
 
-export {help, sayMyName, lightmode, darkmode};
+const matrix = () => {
+    return `Entrez dans la matrice!`;
+}
+
+export {help, sayMyName, lightmode, darkmode, matrix};
