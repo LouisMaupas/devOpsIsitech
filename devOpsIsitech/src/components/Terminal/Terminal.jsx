@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
-import {help, sayMyName, lightmode, darkmode} from "../../features/commands.js"
+import {help, sayMyName, lightmode, darkmode} from "../../features/commands.jsx"
 import {focusInput} from "../../utils/misc.js"
 import './style.css'
 
+/**
+ * Custom component display the terminal
+ * @returns {JSX.Element} the terminal.
+ */
 const Terminal = () => {
     const [text, setText] = useState(""),
         [textDisplayed, setTextDisplayed] = useState(""),
@@ -54,11 +58,12 @@ const Terminal = () => {
                         onChange={handleChange} 
                         autoFocus={true}
                         className={screenMode} 
+                        data-testid="console-input"
                         />
                     </div>
                     <input type="submit" hidden={true}/>
                 </form>
-                <div id="console-return" dangerouslySetInnerHTML={{__html: textDisplayed}}></div>
+                <div id="console-return">{textDisplayed}</div>
             </div>
         </div>
     )
