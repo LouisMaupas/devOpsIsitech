@@ -32,9 +32,13 @@ const Terminal = () => {
             case "fbi":
                 setTextDisplayed(fbi())
                 break;
-            case "saymyname":
-                setTextDisplayed(sayMyName(arg))
-                break;
+            case "saymyname": {
+                if (!arg) {
+                    setTextDisplayed(`D'accord mais quel est ton nom ?`)
+                } else {
+                    setTextDisplayed(sayMyName(arg))
+                }
+            }break;
             case "lightmode":
                 setTextDisplayed(lightmode())
                 setScreenMode("light-mode");
@@ -63,6 +67,10 @@ const Terminal = () => {
                 if (!arg) {
                     setTextDisplayed("music play || music stop")
                 } else if (arg === "play") {
+                    if (document.querySelector("iframe")){
+                        setTextDisplayed("Une musique est déjà en cours...");
+                        return
+                    }
                     const iframe = document.createElement("iframe");
                     iframe.src = "https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1";
                     iframe.frameBorder = "0";

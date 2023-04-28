@@ -1,3 +1,7 @@
+# Changelog après notre passage 
+- la commmande music play pour écouter de la musique !
+- et quelques autres ajouts mineurs à découvrir avec la commande `help`
+
 # Projet devOpsIsitech
 Notre projet est un terminal de commande construit avec la bibliothèque React. il permet aux utilisateurs d'interagir à travers des [commandes](#comment-utiliser-le-projet).
 
