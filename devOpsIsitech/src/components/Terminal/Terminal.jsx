@@ -89,19 +89,6 @@ const Terminal = () => {
                     }
                 }
             } break;
-            case "meteo": {
-                const location = arg || "Lyon";
-                const api_key = import.meta.env.VITE_WEATHER_API;
-                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${api_key}`)
-                  .then((response) => response.json())
-                  .then((data) => {
-                    const temperature = data.main.temp;
-                    setTextDisplayed(`Il fait ${temperature}°C à ${location}.`);
-                  })
-                  .catch(() => {
-                    setTextDisplayed(`Impossible de récupérer la météo pour ${location}.`);
-                  });
-            } break;
             default :
             setTextDisplayed(help())
         }
